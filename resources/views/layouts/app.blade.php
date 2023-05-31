@@ -15,6 +15,12 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <!-- Styles -->
+    <link href="{{ asset('assets/js/bootstrap.min.css') }}">
+
+    @livewireStyles
+
 </head>
 <body>
     <div id="app">
