@@ -36,25 +36,25 @@
     @livewireStyles
 </head>
 
-<body>
+<body class="">
     <div class="container-scroller">
         @include('layouts.includs.Admin.navbar')
-        <!-- partial -->
+
         <div class="container-fluid page-body-wrapper">
         @include('layouts.includs.Admin.sidebar')
-            <!-- partial -->
+
             <div class="main-panel">
 
                 @yield('content')
-                <!-- partial:partials/_footer.html -->
+
                 @include('layouts.includs.Admin.footer')
-                <!-- partial -->
+
             </div>
-            <!-- main-panel ends -->
+
         </div>
-        <!-- page-body-wrapper ends -->
+
     </div>
-    <!-- container-scroller -->
+
 
 
 
