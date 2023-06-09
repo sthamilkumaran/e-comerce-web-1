@@ -7,7 +7,9 @@ module.exports = {
     ],
     theme: {
       colors: {
-        'back': '#5F264A'
+        'back': '#4a044e',
+        'box': '#86198f',
+        'shado': '#d946ef',
       },
       extend: {},
     },
