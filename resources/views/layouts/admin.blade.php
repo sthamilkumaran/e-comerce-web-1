@@ -65,7 +65,8 @@
     <link href="{{ asset('assets/js/jquery-3.7.0.min.js') }}">
 
     <!-- plugins:js -->
-    {{-- <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script> --}}
+    <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
+    {{-- <script type=text/javascript src=/static/js/vendor.cfc7b832dc673a04b010.js></script> --}}
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <script src="{{ asset('admin/vendors/chart.js/Chart.min.js') }}"></script>
