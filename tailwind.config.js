@@ -4,17 +4,12 @@ module.exports = {
       "./resources/**/*.blade.php",
       "./resources/**/*.js",
       "./resources/**/*.vue",
+      "./node_modules/flowbite/**/*.js"
     ],
     theme: {
-      colors: {
-        'back': '#4a044e',
-        'box': '#86198f',
-        'shado': '#d946ef',
-      },
       extend: {},
     },
     plugins: [
         require('flowbite/plugin')
     ],
   }
-
