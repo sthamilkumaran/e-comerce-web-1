@@ -44,30 +44,30 @@
                                         <div class="col form-group">
                                             <label for="name"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                            <input type="text"
+                                            <input type="text" name="name"
                                                 class="bg-gray-200 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                id="exampleInputEmail1" placeholder="Enter name">
+                                                id="name" placeholder="Enter name">
                                         </div>
                                         <div class="col form-group">
-                                            <label for="Slug"
+                                            <label for="slug"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
                                             <input type="text"
                                                 class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                id="exampleInputPassword1" placeholder="Slug">
+                                                id="slug" placeholder="Slug">
                                         </div>
                                         <div class="form-group">
-                                            <label for="Description"
+                                            <label for="description"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                            <textarea id="message" rows="4"
+                                            <textarea id="description" rows="4" name="description"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="Description..."></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                                for="multiple_files">Image</label>
+                                                for="image">Image</label>
                                             <input
                                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 "
-                                                id="multiple_files" type="file" multiple>
+                                                id="image" type="file" name="image" multiple>
                                         </div>
                                         <div class="flex items-center mb-4">
                                             <input id="status" type="checkbox" value="status" name="status"
@@ -84,7 +84,7 @@
                                                 Title</label>
                                             <input type="text"
                                                 class="bg-gray-200 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                id="meta_title" placeholder="Enter meta_title">
+                                                id="meta_title" name="meta_title" placeholder="Enter meta_title">
                                         </div>
                                         <div class="form-group">
                                             <label for="meta_keyword"
