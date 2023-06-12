@@ -38,7 +38,7 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-6 space-y-6">
-                                <form action="{{ url('admin/category') }}" method="post" enctype="multipart/form-data">
+                                <form action="category" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col form-group">
@@ -47,20 +47,29 @@
                                             <input type="text" name="name"
                                                 class="bg-gray-200 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 id="name" placeholder="Enter name">
+                                            @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="col form-group">
                                             <label for="slug"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
-                                            <input type="text"
+                                            <input type="text" name="slug"
                                                 class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 id="slug" placeholder="Slug">
+                                            @error('slug')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="description"
+                                            <label for="descripition"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                            <textarea id="description" rows="4" name="description"
+                                            <textarea id="descripition" rows="4" name="descripition"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder="Description..."></textarea>
+                                                placeholder="descripition..."></textarea>
+                                            @error('descripition')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -68,15 +77,23 @@
                                             <input
                                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 "
                                                 id="image" type="file" name="image" multiple>
+                                            @error('image')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="flex items-center mb-4">
-                                            <input id="status" type="checkbox"  name="status"
+                                            <input id="status" type="checkbox" name="status"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="default-checkbox"
                                                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
                                         </div>
                                         <div class="col">
-                                            <h2 class="mb-4 text-xl text-center font-extrabold text-gray-900 dark:text-white md:text-xl lg:text-xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">SEO Tag</span></h2>
+                                            <h2
+                                                class="mb-4 text-xl text-center font-extrabold text-gray-900 dark:text-white md:text-xl lg:text-xl">
+                                                <span
+                                                    class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">SEO
+                                                    Tag</span>
+                                            </h2>
                                         </div>
                                         <div class="form-group">
                                             <label for="meta_title"
@@ -85,6 +102,9 @@
                                             <input type="text"
                                                 class="bg-gray-200 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 id="meta_title" name="meta_title" placeholder="Enter meta_title">
+                                            @error('meta_title')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="meta_keyword"
@@ -93,14 +113,20 @@
                                             <textarea id="meta_keyword" rows="4" name="meta_keyword"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="Meta Keyword..."></textarea>
+                                            @error('meta_keyword')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label for="meta_description"
+                                            <label for="meta_descripition"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Meta
                                                 Description</label>
-                                            <textarea id="meta_description" rows="4"name="meta_description"
+                                            <textarea id="meta_descripition" rows="4"name="meta_descripition"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder="Meta Description..."></textarea>
+                                                placeholder="Meta descripition..."></textarea>
+                                            @error('meta_descripition')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                         </div>
                                     </div>
                                     {{-- button --}}

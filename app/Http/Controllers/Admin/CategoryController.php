@@ -7,6 +7,7 @@ use App\Http\Requests\CategoryFormRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Symfony\Component\Console\Input\Input;
 
 class CategoryController extends Controller
 {
@@ -33,12 +34,18 @@ class CategoryController extends Controller
             $category->image = $fileName;
         }
 
+
         $category->meta_title = $validateData['meta_title'];
         $category->meta_keyword = $validateData['meta_keyword'];
         $category->meta_descripition = $validateData['meta_descripition'];
 
         $category->status = $request->status == true ? '1':'2';
+
+        // dd($category->meta_title);
         $category->save();
+        return back()->with('message','Operation Successful !');
+    }
+    public function reset(){
 
     }
 }
