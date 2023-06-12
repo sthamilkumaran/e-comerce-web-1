@@ -38,7 +38,7 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-6 space-y-6">
-                                <form action="{{ url('admin/category') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ url('admin/category') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col form-group">
@@ -70,7 +70,7 @@
                                                 id="image" type="file" name="image" multiple>
                                         </div>
                                         <div class="flex items-center mb-4">
-                                            <input id="status" type="checkbox" value="status" name="status"
+                                            <input id="status" type="checkbox"  name="status"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="default-checkbox"
                                                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
@@ -105,7 +105,7 @@
                                     </div>
                                     {{-- button --}}
                                     <div class="flex items-center p-4 rounded-b dark:border-gray-600">
-                                        <button data-modal-hide="staticModal" type="submit"
+                                        <button type="submit"
                                             class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Save</button>
                                         <button data-modal-hide="staticModal" type="button"
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Cancle</button>
