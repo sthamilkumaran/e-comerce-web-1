@@ -314,5 +314,5 @@
                 </tbody>
             </table>
         </div>
-        {{ $categories->links() }}
+        {{ $categories->links('pagination::tailwind') }}
     </div>
