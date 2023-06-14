@@ -165,15 +165,15 @@
                             </div>
                             <!-- Modal body -->
                             <div class="p-6 space-y-6">
-                                <form action="category" method="POST" enctype="multipart/form-data">
-                                    @csrf
+                                <form>
+
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="name"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                                            <input type="text" name="name" wire:model="name"
+                                            <input type="text" wire:model="name"
                                                 class="bg-gray-200 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                id="name" placeholder="Enter name">
+                                                placeholder="Enter name">
                                             @error('name')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -181,9 +181,9 @@
                                         <div class="col form-group">
                                             <label for="slug"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Slug</label>
-                                            <input type="text" name="slug" wire:model="slug"
+                                            <input type="text"wire:model="slug"
                                                 class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                id="slug" placeholder="Slug">
+                                                placeholder="Slug">
                                             @error('slug')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -191,25 +191,26 @@
                                         <div class="form-group">
                                             <label for="descripition"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                            <textarea id="descripition" wire:model="descripition" rows="4" name="descripition"
+                                            <textarea  wire:model="descripition" rows="4"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="descripition..."></textarea>
                                             @error('descripition')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                                 for="image">Image</label>
                                             <input
                                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 "
-                                                id="image" type="file" name="image" multiple>
-                                            @error('image')
+                                                id="image" type="file" name="image" multiple> --}}
+                                                {{-- <img src="{{ asset('storage/app/services'.$logo_img_path) }}" /> --}}
+                                            {{-- @error('image')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         <div class="flex items-center mb-4">
-                                            <input id="status" type="checkbox" name="status" wire:model="status"
+                                            <input  type="checkbox" wire:model="status"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="default-checkbox"
                                                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
@@ -228,7 +229,7 @@
                                                 Title</label>
                                             <input type="text" wire:model="meta_title"
                                                 class="bg-gray-200 border border-gray-700 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                id="meta_title" name="meta_title" placeholder="Enter meta_title">
+                                                placeholder="Enter meta_title">
                                             @error('meta_title')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -237,7 +238,7 @@
                                             <label for="meta_keyword"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Meta
                                                 Keyword</label>
-                                            <textarea id="meta_keyword" wire:model="meta_keyword" rows="4" name="meta_keyword"
+                                            <textarea wire:model="meta_keyword" rows="4"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="Meta Keyword..."></textarea>
                                             @error('meta_keyword')
@@ -248,7 +249,7 @@
                                             <label for="meta_descripition"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Meta
                                                 Description</label>
-                                            <textarea id="meta_descripition" wire:model="meta_descripition" rows="4"name="meta_descripition"
+                                            <textarea wire:model="meta_descripition" rows="4"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="Meta descripition..."></textarea>
                                             @error('meta_descripition')
@@ -258,7 +259,7 @@
                                     </div>
                                     {{-- button --}}
                                     <div class="flex items-center p-4 rounded-b dark:border-gray-600">
-                                        <button type="submit"
+                                        <button type="button" wire:click.prevent="update"
                                             class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Save</button>
                                         <button data-modal-hide="updateModal" type="button"
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Cancle</button>
@@ -304,8 +305,8 @@
                             {{ $category->status == '1' ? 'hidden':'visible' }}
                         </td>
                         <td class="px-6 py-2">
-                            {{-- <button type="button" wire:click="edit({{$categories->id}})" data-modal-target="updateModal" data-modal-toggle="updateModal" --}}
-                                {{-- class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Edit</button> --}}
+                            <button type="button" wire:click="edit({{$category->id}})" data-modal-target="updateModal" data-modal-toggle="updateModal"
+                                class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Edit</button>
                             <button type="button"
                                 class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Delete</button>
                         </td>

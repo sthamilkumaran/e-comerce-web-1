@@ -12,16 +12,14 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $cate_gories, $name, $slug, $image, $descripition, $meta_title, $meta_keyword, $meta_descripition, $category_id, $status;
+    public  $name, $slug, $image, $descripition, $meta_title, $meta_keyword, $meta_descripition, $category_id, $status;
 
-    protected $listeners = [
-        'deleteCategory'=>'destroy'
-    ];
+
     // Validation Rules
     protected $rules = [
         'name'=>'required',
         'slug'=>'required',
-        'image'=>'required',
+        // 'image'=>'required',
         'descripition'=>'required',
         'meta_title'=>'required',
         'meta_keyword'=>'required',
@@ -32,23 +30,24 @@ class Index extends Component
         $this->name = '';
         $this->slug = '';
         $this->descripition = '';
-        $this->image = '';
+        // $this->image = '';
         $this->meta_title = '';
         $this->meta_keyword = '';
         $this->meta_descripition = '';
-        $this->status = '';
+        // $this->status = '';
     }
-    public function edit($id){
-        $categories = Category::findOrFail($id);
-        $this->name = $categories->name;
-        $this->slug = $categories->slug;
+    public function edit(int $category_id){
+        $category = Category::find($category_id);
+        $this->category_id = $category->id;
+        $this->name = $category->name;
+        $this->slug = $category->slug;
         // $this->image = $categories->image;
-        $this->descripition = $categories->descripition;
-        $this->status = $categories->status;
-        $this->meta_title = $categories->meta_title;
-        $this->meta_keyword = $categories->meta_keyword;
-        $this->meta_descripition = $categories->meta_descripition;
-        $this->category_id = $categories->id;
+        $this->descripition = $category->descripition;
+        // $this->status = $category->status;
+        $this->meta_title = $category->meta_title;
+        $this->meta_keyword = $category->meta_keyword;
+        $this->meta_descripition = $category->meta_descripition;
+
 
     }
     public function cancel()    {
@@ -57,25 +56,24 @@ class Index extends Component
     }
     public function update(){
         // Validate request
-        $this->validate();
+
         try{
             // Update category
-            Category::find($this->category_id)->fill([
-                'name'=>$this->name,
-                'slug'=>$this->slug,
-                'image'=>$this->image,
-                'descripition'=>$this->descripition,
-                'status'=>$this->status,
-                'meta_title'=>$this->description,
-                'meta_keyword'=>$this->meta_keyword,
-                'meta_descripition'=>$this->meta_descripition,
-            ])->save();
-            session()->flash('success','Category Updated Successfully!!');
+            Category::where('id',$this->category_id)->update([
+                'name' => $this->name,
+                'slug' => $this->slug,
+                // 'image'=>$this->image,
+                'descripition' => $this->descripition,
+                // 'status'=>$this->status,
+                'meta_title' => $this->description,
+                'meta_keyword' => $this->meta_keyword,
+                'meta_descripition' => $this->meta_descripition,
+            ]);
 
             $this->cancel();
         }catch(\Exception $e){
             session()->flash('error','Something goes wrong while updating category!!');
-            $this->cancel();
+            dd($this->category_id);
         }
     }
     // public function destroy($id){
@@ -88,7 +86,7 @@ class Index extends Component
     // }
     public function render()
     {
-        // $this->cate_gories = Category::select('id','slug','descripition','image','meta_title','meta_keyword','meta_descripition','status')->get();
+
         $categories = Category::orderBy('id','DESC')->paginate(2);
         return view('livewire.admin.category.index',['categories' => $categories]);
     }
