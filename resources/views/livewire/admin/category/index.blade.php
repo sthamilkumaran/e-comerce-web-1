@@ -142,7 +142,8 @@
 
                 <!-- Update modal -->
                 <!-- Main modal -->
-                <div id="updateModal" data-modal-backdrop="static" wire:ignore.self tabindex="-1" aria-hidden="true"
+                <div id="updateModal" data-modal-backdrop="static" wire:ignore.self tabindex="-1"
+                    aria-hidden="true"
                     class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full mt-10">
                     <div class="relative w-full max-w-2xl max-h-full">
                         <!-- Modal content -->
@@ -166,7 +167,6 @@
                             <!-- Modal body -->
                             <div class="p-6 space-y-6">
                                 <form>
-
                                     <div class="row">
                                         <div class="col form-group">
                                             <label for="name"
@@ -191,7 +191,7 @@
                                         <div class="form-group">
                                             <label for="descripition"
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                            <textarea  wire:model="descripition" rows="4"
+                                            <textarea wire:model="descripition" rows="4"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                                 placeholder="descripition..."></textarea>
                                             @error('descripition')
@@ -204,13 +204,13 @@
                                             <input
                                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 "
                                                 id="image" type="file" name="image" multiple> --}}
-                                                {{-- <img src="{{ asset('storage/app/services'.$logo_img_path) }}" /> --}}
-                                            {{-- @error('image')
+                                        {{-- <img src="{{ asset('storage/app/services'.$logo_img_path) }}" /> --}}
+                                        {{-- @error('image')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div> --}}
                                         <div class="flex items-center mb-4">
-                                            <input  type="checkbox" wire:model="status"
+                                            <input type="checkbox" wire:model="status"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="default-checkbox"
                                                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Status</label>
@@ -259,7 +259,7 @@
                                     </div>
                                     {{-- button --}}
                                     <div class="flex items-center p-4 rounded-b dark:border-gray-600">
-                                        <button type="button" wire:click.prevent="update"
+                                        <button type="button" wire:click.prevent="update()"
                                             class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Save</button>
                                         <button data-modal-hide="updateModal" type="button"
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Cancle</button>
@@ -292,25 +292,25 @@
                 </thead>
                 <tbody>
                     @foreach ($categories as $category)
-
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <th scope="row"
-                            class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $category->id }}
-                        </th>
-                        <td class="px-6 py-2">
-                            {{ $category->name }}
-                        </td>
-                        <td class="px-6 py-2">
-                            {{ $category->status == '1' ? 'hidden':'visible' }}
-                        </td>
-                        <td class="px-6 py-2">
-                            <button type="button" wire:click="edit({{$category->id}})" data-modal-target="updateModal" data-modal-toggle="updateModal"
-                                class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Edit</button>
-                            <button type="button"
-                                class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Delete</button>
-                        </td>
-                    </tr>
+                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ $category->id }}
+                            </th>
+                            <td class="px-6 py-2">
+                                {{ $category->name }}
+                            </td>
+                            <td class="px-6 py-2">
+                                {{ $category->status == '1' ? 'hidden' : 'visible' }}
+                            </td>
+                            <td class="px-6 py-2">
+                                <button type="button" wire:click="edit({{ $category->id }})"
+                                    data-modal-target="updateModal" data-modal-toggle="updateModal"
+                                    class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Edit</button>
+                                <button type="button" wire:click.prevent='delete({{ $category->id }})'
+                                    class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Delete</button>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
