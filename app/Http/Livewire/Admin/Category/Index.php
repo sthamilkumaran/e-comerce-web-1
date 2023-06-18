@@ -5,21 +5,26 @@ namespace App\Http\Livewire\Admin\Category;
 use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\File;
 
 class Index extends Component
 {
 
+    use WithFileUploads;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
     public  $name, $slug, $image, $descripition, $meta_title, $meta_keyword, $meta_descripition, $category_id, $status;
+    public $old_image, $new_image;
     protected $categories;
+    public $search = '';
 
     // Validation Rules
     protected $rules = [
         'name'=>'required',
         'slug'=>'required',
-        // 'image'=>'required',
+        'image'=>'required|mimes:png,jpg,jpeg',
         'descripition'=>'required',
         'meta_title'=>'required',
         'meta_keyword'=>'required',
@@ -41,13 +46,15 @@ class Index extends Component
         $this->category_id = $id;
         $this->name = $category->name;
         $this->slug = $category->slug;
-        // $this->image = $categories->image;
         $this->descripition = $category->descripition;
-        // $this->status = $category->status;
+        $this->old_image = $category->image;
+        $this->status = $category->status;
         $this->meta_title = $category->meta_title;
         $this->meta_keyword = $category->meta_keyword;
         $this->meta_descripition = $category->meta_descripition;
 
+        // dd($this->name);
+        // == true ? '1':'2'
 
     }
     public function cancel()    {
@@ -55,13 +62,35 @@ class Index extends Component
         $this->resetFields();
     }
     public function update(){
-        // Validate request
 
+        
         $category = Category::find($this->category_id);
+        $destination = public_path('uploads/category');
+        if($this->new_image != null) {
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $category->image;
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->store('uploads/category',$filename);
+            $this->image = $filename;
+        } else {
+            $filename = $this->file;
+        }
+        // if($this->image){
+        //     $file = $category->image;
+        //     $ext = $file->getClientOriginalExtension();
+        //     $fileName = time().'.'.$ext;
+        //     $file->move('uploads/category',$fileName);
+        //     $this->image = $fileName;
+        // }
         $category->update([
            'name' => $this->name,
            'slug' =>$this->slug,
            'descripition' => $this->descripition,
+           'status' => $this->status == true ? '1':'2',
+           'image' => $this->fileName,
            'meta_title' => $this->meta_title,
            'meta_keyword' => $this->meta_keyword,
            'meta_descripition' => $this->meta_descripition,
@@ -80,8 +109,8 @@ class Index extends Component
     public function render()
     {
         // $searchTerm = '%'.$this->searchTerm.'%';
-        $categories = Category::orderBy('id','DESC')->paginate(2);
-        return view('livewire.admin.category.index',compact('categories'));
+        $categories = Category::where('name', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(2);
+        return view('livewire.admin.category.index',compact('categories'),);
 
     }
 }
