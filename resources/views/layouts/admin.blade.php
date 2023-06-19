@@ -45,13 +45,13 @@
         @include('layouts.includs.Admin.sidebar')
 
             <div class="main-panel">
-
+            <div>
                 @yield('content')
-
-
-
             </div>
-        @include('layouts.includs.Admin.footer')
+
+                @include('layouts.includs.Admin.footer')
+            </div>
+
         </div>
 
     </div>
