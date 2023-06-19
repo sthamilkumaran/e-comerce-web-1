@@ -280,7 +280,7 @@
                 <!-- Update modal end -->
             </div>
         </div>
-        <div class="relative overflow-x-auto shadow-lg sm:rounded-lg">
+        <div class="relative overflow-x-auto shadow-lg sm:rounded-lg" wire:ignore.self>
             <form class="flex items-center px-2 py-2">
                 <label for="simple-search" class="sr-only">Search</label>
                 <div class="relative w-60">
@@ -294,7 +294,7 @@
                     </div>
                     <input wire:model="search" type="search"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Search.." required>
+                        placeholder="Search..">
                 </div>
             </form>
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
