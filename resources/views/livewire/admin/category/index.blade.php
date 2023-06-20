@@ -341,3 +341,4 @@
         </div>
         {{ $categories->links('pagination::tailwind') }}
     </div>
+</div>
