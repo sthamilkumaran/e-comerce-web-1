@@ -63,7 +63,7 @@ class Index extends Component
     }
     public function update(){
 
-        
+
         $category = Category::find($this->category_id);
         $destination = public_path('uploads/category');
         if($this->new_image != null) {
@@ -109,7 +109,7 @@ class Index extends Component
     public function render()
     {
         // $searchTerm = '%'.$this->searchTerm.'%';
-        $categories = Category::where('name', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(2);
+        $categories = Category::where('name', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(1);
         return view('livewire.admin.category.index',compact('categories'),);
 
     }
