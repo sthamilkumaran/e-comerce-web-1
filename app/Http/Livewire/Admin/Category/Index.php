@@ -66,18 +66,7 @@ class Index extends Component
 
         $category = Category::find($this->category_id);
         $destination = public_path('uploads/category');
-        if($this->new_image != null) {
-            if(File::exists($destination)){
-                File::delete($destination);
-            }
-            $file = $category->image;
-            $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext;
-            $file->store('uploads/category',$filename);
-            $this->image = $filename;
-        } else {
-            $filename = $this->file;
-        }
+        
         // if($this->image){
         //     $file = $category->image;
         //     $ext = $file->getClientOriginalExtension();

@@ -26,6 +26,9 @@ class Index extends Component
         $this->slug = '';
         $this->status = '';
     }
+    public function closeModal() {
+        $this->resetFields;
+    }
     public function store() {
         $validateData = $this->validate();
 
@@ -37,6 +40,13 @@ class Index extends Component
         session()->flash('message','Brand Added Successfully');
         $this->resetFields();
         return back();
+    }
+
+    public function edit(int $brand_id) {
+        $brand = Brand::findOrFail($brand_id);
+        $this->name = $brand->name;
+        $this->slug = $brand->slug;
+        $this->status = $brand->status;
     }
     public function render()
     {
