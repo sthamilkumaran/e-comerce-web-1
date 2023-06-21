@@ -135,7 +135,7 @@
                                     </div>
                                     {{-- button --}}
                                     <div class="flex items-center p-4 rounded-b dark:border-gray-600">
-                                        <button type="button" wire:click.prevent="update()"
+                                        <button type="button" wire:click="update()"
                                             class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Update Brand</button>
                                         <button data-modal-hide="updateModal" type="button" wire:click.prevent='closeModal'
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Cancle</button>
@@ -204,7 +204,7 @@
                             <button type="button" wire:click="edit({{ $brand->id }})" data-modal-target="updateModal"
                                 data-modal-toggle="updateModal"
                                 class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 shadow-lg shadow-lime-500/50 dark:shadow-lg dark:shadow-lime-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Edit</button>
-                            <button type="button" wire:click.prevent='delete()'
+                            <button type="button" wire:click.prevent='delete({{ $brand->id  }})'
                                 class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-3 py-2.5 text-center mr-2 mb-2">Delete</button>
                         </td>
                     </tr>

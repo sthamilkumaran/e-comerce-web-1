@@ -42,22 +42,32 @@ class Index extends Component
         return back();
     }
 
-    public function edit(int $brand_id) {
-        $brand = Brand::findOrFail($brand_id);
+    public function edit(int $id) {
+        $brand = Brand::findOrFail($id);
+        $this->brand_id = $brand->id;
         $this->name = $brand->name;
         $this->slug = $brand->slug;
         $this->status = $brand->status;
     }
     public function update(){
+        // $validateData = $this->validate();
+
         $brand = Brand::find($this->brand_id);
         $brand->update([
            'name' => $this->name,
-           'slug' =>$this->slug,
+           'slug' =>Str::slug($this->slug),
            'status' => $this->status == true ? '1':'0',
         ]);
 
-        session()->flash('message', 'Brand Updated Successfully.');
+        // session()->flash('message', 'Brand Updated Successfully.');
         $this->resetFields();
+        return back();
+    }
+
+    public function delete(int $id)
+    {
+        Brand::find($id)->delete();
+        session()->flash('message', 'Brand Deleted Successfully.');
     }
     public function render()
     {
