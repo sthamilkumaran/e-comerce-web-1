@@ -27,7 +27,7 @@ class Index extends Component
         $this->status = '';
     }
     public function closeModal() {
-        $this->resetFields;
+        $this->resetFields();
     }
     public function store() {
         $validateData = $this->validate();
@@ -48,9 +48,20 @@ class Index extends Component
         $this->slug = $brand->slug;
         $this->status = $brand->status;
     }
+    public function update(){
+        $brand = Brand::find($this->brand_id);
+        $brand->update([
+           'name' => $this->name,
+           'slug' =>$this->slug,
+           'status' => $this->status == true ? '1':'0',
+        ]);
+
+        session()->flash('message', 'Brand Updated Successfully.');
+        $this->resetFields();
+    }
     public function render()
     {
-        $brands = Brand::where('name', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(2);
+        $brands = Brand::where('name', 'like', '%'.$this->search.'%')->orwhere('id', 'like', '%'.$this->search.'%')->orderBy('id','DESC')->paginate(2);
         return view('livewire.admin.brand.index',['brands' => $brands]);
 
     }

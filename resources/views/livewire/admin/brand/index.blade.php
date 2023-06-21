@@ -4,7 +4,7 @@
             <div class="col-md-12 grid-margin">
                 <!-- Card -->
                 <!-- Modal card -->
-                <button data-modal-target="brandModal" data-modal-toggle="brandModal"
+                <button data-modal-target="brandModal" data-modal-toggle="brandModal" wire:click.prevent='closeModal'
                     class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     type="button">
                     Add Brands
@@ -69,7 +69,7 @@
                                     <div class="flex items-center p-4 rounded-b dark:border-gray-600">
                                         <button type="button" wire:click.prevent='store()'
                                             class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Save Brand</button>
-                                        <button data-modal-hide="brandModal" type="button"
+                                        <button data-modal-hide="brandModal" type="button" wire:click.prevent='closeModal'
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Cancle</button>
                                     </div>
                                 </form>
@@ -137,7 +137,7 @@
                                     <div class="flex items-center p-4 rounded-b dark:border-gray-600">
                                         <button type="button" wire:click.prevent="update()"
                                             class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Update Brand</button>
-                                        <button data-modal-hide="updateModal" type="button"
+                                        <button data-modal-hide="updateModal" type="button" wire:click.prevent='closeModal'
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-4 py-2.5 text-center mr-2 mb-2">Cancle</button>
                                     </div>
                                 </form>

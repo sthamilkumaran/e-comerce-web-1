@@ -24,7 +24,7 @@ class Index extends Component
     protected $rules = [
         'name'=>'required',
         'slug'=>'required',
-        'image'=>'required|mimes:png,jpg,jpeg',
+        // 'image'=>'required|mimes:png,jpg,jpeg',
         'descripition'=>'required',
         'meta_title'=>'required',
         'meta_keyword'=>'required',
@@ -35,7 +35,7 @@ class Index extends Component
         $this->name = '';
         $this->slug = '';
         $this->descripition = '';
-        $this->image = '';
+        // $this->image = '';
         $this->meta_title = '';
         $this->meta_keyword = '';
         $this->meta_descripition = '';
@@ -47,7 +47,7 @@ class Index extends Component
         $this->name = $category->name;
         $this->slug = $category->slug;
         $this->descripition = $category->descripition;
-        $this->old_image = $category->image;
+        // $this->old_image = $category->image;
         $this->status = $category->status;
         $this->meta_title = $category->meta_title;
         $this->meta_keyword = $category->meta_keyword;
@@ -65,21 +65,12 @@ class Index extends Component
 
 
         $category = Category::find($this->category_id);
-        $destination = public_path('uploads/category');
-        
-        // if($this->image){
-        //     $file = $category->image;
-        //     $ext = $file->getClientOriginalExtension();
-        //     $fileName = time().'.'.$ext;
-        //     $file->move('uploads/category',$fileName);
-        //     $this->image = $fileName;
-        // }
         $category->update([
            'name' => $this->name,
            'slug' =>$this->slug,
            'descripition' => $this->descripition,
-           'status' => $this->status == true ? '1':'2',
-           'image' => $this->fileName,
+           'status' => $this->status == true ? '1':'0',
+        //    'image' => $this->fileName,
            'meta_title' => $this->meta_title,
            'meta_keyword' => $this->meta_keyword,
            'meta_descripition' => $this->meta_descripition,

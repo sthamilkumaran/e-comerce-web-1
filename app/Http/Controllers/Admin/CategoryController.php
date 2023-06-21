@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $category->meta_keyword = $validateData['meta_keyword'];
         $category->meta_descripition = $validateData['meta_descripition'];
 
-        $category->status = $request->status == true ? '1':'2';
+        $category->status = $request->status == true ? '1':'0';
 
         // dd($category->meta_title);
         $category->save();
