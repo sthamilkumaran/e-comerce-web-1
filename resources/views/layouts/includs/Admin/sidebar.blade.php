@@ -8,13 +8,19 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="mdi mdi-home menu-icon"></i>
-                <span class="menu-title">Sales</span>
+            <a class="nav-link" href="{{ url('admin/category') }}">
+                <i class="mdi mdi-circle-outline menu-icon"></i>
+                <span class="menu-title">Category</span>
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+            <a class="nav-link" href="{{ url('admin/brands') }}">
+                <i class="mdi mdi-home menu-icon"></i>
+                <span class="menu-title">Brands</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="{#ui-basic}" aria-expanded="false"
                 aria-controls="ui-basic">
                 <i class="mdi mdi-circle-outline menu-icon"></i>
                 <span class="menu-title">Category</span>
@@ -28,12 +34,6 @@
                     </li>
                 </ul>
             </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="">
-                <i class="mdi mdi-home menu-icon"></i>
-                <span class="menu-title">Brands</span>
-            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="pages/forms/basic_elements.html">
